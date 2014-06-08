@@ -1,0 +1,61 @@
+// 3d mixins
+
+.rotateY(@angle) {
+    -webkit-transform: rotateY( @angle );
+    -moz-transform: rotateY( @angle );
+    -o-transform: rotateY( @angle );
+    transform: rotateY( @angle );
+}
+.transition(@sec) {
+    -webkit-transition: -webkit-transform @sec;
+    -moz-transition: -moz-transform @sec;
+    -o-transition: -o-transform @sec;
+    transition: transform @sec;
+}
+.transform-style(@style) {
+     -webkit-transform-style: style;
+    -moz-transform-style: @style;
+    -o-transform-style: @style;
+    transform-style: @style;
+}
+.perspective(@distance) {
+    -webkit-perspective: @distance;
+    -moz-perspective: @distance;
+    -o-perspective: @distance;
+    perspective: @distance;
+}
+.unselectable {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+// main style
+
+.container {
+    font-family: 'ubuntu';
+    width: 990px;
+    margin: 50px auto;
+}
+
+.container>div {
+    float: left;
+    .perspective(800px);
+    margin-bottom: 10px;
+}
+
+.container div div {
+    float: left;
+    .transition(10s);
+    .transform-style(preserve-3d);
+    .unselectable;
+    &:hover {
+        background-color: #f0f0f0;
+    }
+}
+
+
+.container div div.flipped {
+    .rotateY(360deg);
+}
