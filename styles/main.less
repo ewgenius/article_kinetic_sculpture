@@ -1,61 +1,112 @@
 // 3d mixins
 
 .rotateY(@angle) {
-    -webkit-transform: rotateY( @angle );
-    -moz-transform: rotateY( @angle );
-    -o-transform: rotateY( @angle );
-    transform: rotateY( @angle );
+  -webkit-transform: rotateY(@angle);
+  -moz-transform: rotateY(@angle);
+  -o-transform: rotateY(@angle);
+  transform: rotateY(@angle);
 }
+
+.rotateX(@angle) {
+  -webkit-transform: rotateX(@angle);
+  -moz-transform: rotateX(@angle);
+  -o-transform: rotateX(@angle);
+  transform: rotateX(@angle);
+}
+
+.rotateZ(@angle) {
+  -webkit-transform: rotateZ(@angle);
+  -moz-transform: rotateZ(@angle);
+  -o-transform: rotateZ(@angle);
+  transform: rotateZ(@angle);
+}
+
 .transition(@sec) {
-    -webkit-transition: -webkit-transform @sec;
-    -moz-transition: -moz-transform @sec;
-    -o-transition: -o-transform @sec;
-    transition: transform @sec;
+  -webkit-transition: -webkit-transform @sec;
+  -moz-transition: -moz-transform @sec;
+  -o-transition: -o-transform @sec;
+  transition: transform @sec;
 }
+
 .transform-style(@style) {
-     -webkit-transform-style: style;
-    -moz-transform-style: @style;
-    -o-transform-style: @style;
-    transform-style: @style;
+  -webkit-transform-style: style;
+  -moz-transform-style: @style;
+  -o-transform-style: @style;
+  transform-style: @style;
 }
+
 .perspective(@distance) {
-    -webkit-perspective: @distance;
-    -moz-perspective: @distance;
-    -o-perspective: @distance;
-    perspective: @distance;
+  -webkit-perspective: @distance;
+  -moz-perspective: @distance;
+  -o-perspective: @distance;
+  perspective: @distance;
 }
+
 .unselectable {
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -o-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 }
 
 // main style
 
+body {
+  font-family: 'ubuntu';
+  line-height: 1.5;
+}
+
 .container {
-    font-family: 'ubuntu';
-    width: 990px;
-    margin: 50px auto;
+  width: 990px;
+  margin: 50px auto;
 }
 
-.container>div {
-    float: left;
-    .perspective(800px);
-    margin-bottom: 10px;
+.part_1 > div {
+  float: left;
+  .perspective(800px);
+  margin-bottom: 10px;
 }
-
-.container div div {
-    float: left;
-    .transition(10s);
-    .transform-style(preserve-3d);
-    .unselectable;
-    &:hover {
-        background-color: #f0f0f0;
-    }
-}
-
-
-.container div div.flipped {
+/*
+.part_1 div div {
+  float: left;
+  .transition(10s);
+  .transform-style(preserve-3d);
+  .unselectable;
+  &:hover {
+    background-color: #f0f0f0;
+  }
+  &.flipped {
     .rotateY(360deg);
+  }
+}
+*/
+.part_2 b {
+  font-weight: normal;
+  background-color: #e6e7e8;
+  font-size: 16px;
+  .transition(5s);
+  &.bold {
+    font-size: 22px;
+    letter-spacing: -4px;
+    line-height: 0.9;
+    font-weight: bold;
+    background-color: transparent;
+    &._18 {
+      font-size: 18px;
+    }
+    &._22 {
+      font-size: 22px;
+    }
+    &._26 {
+      font-size: 26px;
+    }
+    &._28 {
+      font-size: 28px;
+    }
+    &._32 {
+      font-size: 32px;
+      line-height: 0.4;
+      letter-spacing: -8px;
+    }
+  }
 }
